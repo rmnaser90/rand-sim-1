@@ -18,8 +18,7 @@ router.post('/todo', function (req, res) {
 
 router.put('/todo/:todoID', function (req, res) {
     const todoID = req.params.todoID
-
-    todos.find(t => t.id == todoID).completed = true
+    todos.find(t => t.id == todoID).complete = !todos.find(t => t.id == todoID).complete
     res.send(todos)
 })
 
